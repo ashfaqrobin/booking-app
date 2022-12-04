@@ -1,0 +1,10 @@
+{{template "base" .}}
+
+{{define "content"}}
+<h1>About page with layout</h1>
+{{if ne (index .StringMap "IP") ""}}
+<p>Your IP address: {{index .StringMap "IP"}}</p>
+{{else}}
+<p>I don't know your IP address yet</p>
+{{end}}
+{{end}}
