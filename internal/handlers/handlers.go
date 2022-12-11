@@ -6,10 +6,10 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/ashfaqrobin/booking-app/pkg/config"
-	"github.com/ashfaqrobin/booking-app/pkg/models"
-	"github.com/ashfaqrobin/booking-app/pkg/render"
-	"github.com/ashfaqrobin/booking-app/pkg/structs"
+	"github.com/ashfaqrobin/booking-app/internal/config"
+	"github.com/ashfaqrobin/booking-app/internal/models"
+	"github.com/ashfaqrobin/booking-app/internal/render"
+	"github.com/ashfaqrobin/booking-app/internal/structs"
 )
 
 type Repository struct {

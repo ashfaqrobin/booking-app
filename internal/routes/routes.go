@@ -3,9 +3,9 @@ package routes
 import (
 	"net/http"
 
-	"github.com/ashfaqrobin/booking-app/pkg/config"
-	"github.com/ashfaqrobin/booking-app/pkg/handlers"
-	"github.com/ashfaqrobin/booking-app/pkg/middlewares"
+	"github.com/ashfaqrobin/booking-app/internal/config"
+	"github.com/ashfaqrobin/booking-app/internal/handlers"
+	"github.com/ashfaqrobin/booking-app/internal/middlewares"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 )

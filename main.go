@@ -7,10 +7,10 @@ import (
 	"time"
 
 	"github.com/alexedwards/scs/v2"
-	"github.com/ashfaqrobin/booking-app/pkg/config"
-	"github.com/ashfaqrobin/booking-app/pkg/handlers"
-	"github.com/ashfaqrobin/booking-app/pkg/render"
-	"github.com/ashfaqrobin/booking-app/pkg/routes"
+	"github.com/ashfaqrobin/booking-app/internal/config"
+	"github.com/ashfaqrobin/booking-app/internal/handlers"
+	"github.com/ashfaqrobin/booking-app/internal/render"
+	"github.com/ashfaqrobin/booking-app/internal/routes"
 )
 
 func main() {
