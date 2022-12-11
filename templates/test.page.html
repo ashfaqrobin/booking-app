@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test page</title>
+</head>
+
+<body>
+    <form action="/search-availability" method="post" novalidate class="needs-validation">
+        <input type="hidden" name="csrf_token" value="{{.CSRFToken}}">
+        <div class="row">
+            <div class="col">
+                <div class="row" id="reservation-dates">
+                    <div class="col-md-6">
+                        <input required class="form-control" type="text" name="start" placeholder="Arrival">
+                    </div>
+                    <div class="col-md-6">
+                        <input required class="form-control" type="text" name="end" placeholder="Departure">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <button type="submit" class="btn btn-primary">Search Availability</button>
+
+    </form>
+</body>
+
+</html>
