@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/gob"
 	"fmt"
 	"log"
 	"net/http"
@@ -9,11 +10,15 @@ import (
 	"github.com/alexedwards/scs/v2"
 	"github.com/ashfaqrobin/booking-app/internal/config"
 	"github.com/ashfaqrobin/booking-app/internal/handlers"
+	"github.com/ashfaqrobin/booking-app/internal/models"
 	"github.com/ashfaqrobin/booking-app/internal/render"
 	"github.com/ashfaqrobin/booking-app/internal/routes"
 )
 
 func main() {
+	// Register what I want to put in the session
+	gob.Register(models.Reservation{})
+
 	// Creating app config
 	var app config.AppConfig
 

@@ -6,29 +6,66 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test page</title>
+    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
 </head>
 
 <body>
-    <form action="/search-availability" method="post" novalidate class="needs-validation">
-        <input type="hidden" name="csrf_token" value="{{.CSRFToken}}">
-        <div class="row">
-            <div class="col">
-                <div class="row" id="reservation-dates">
-                    <div class="col-md-6">
-                        <input required class="form-control" type="text" name="start" placeholder="Arrival">
-                    </div>
-                    <div class="col-md-6">
-                        <input required class="form-control" type="text" name="end" placeholder="Departure">
+    <div class="container">
+        <h1 class="mb-3 mt-5">Make Reservation</h1>
+
+        {{$res := index .Data "reservation"}}
+
+        <form action="/make-reservation" method="post" novalidate class="needs-validation">
+            <input type="hidden" name="csrf_token" value="{{.CSRFToken}}">
+            <div class="row">
+                <div class="col">
+                    <div class="row" id="reservation-dates">
+
+                        <div class="col-md-6">
+                            <label for="first_name">First Name</label>
+                            {{with .Form.Errors.Get "first_name"}}
+                            <label class="text-danger">: {{.}}</label>
+                            {{end}}
+                            {{$match := "first_name"}}
+                            <input required class="form-control {{with .Form.Errors.Get $match}} is-invalid
+                                {{end}}" id="first_name" type="text" name="first_name" value="{{$res.FirstName}}">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="last_name">Last Name</label>
+                            {{with .Form.Errors.Get "last_name"}}
+                            <label class="text-danger">: {{.}}</label>
+                            {{end}}
+                            {{$match := "last_name"}}
+                            <input required class="form-control {{with .Form.Errors.Get $match}} is-invalid
+                                {{end}}" type="text" id="last_name" name="last_name" value="{{$res.LastName}}">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="email">Email</label>
+                            {{with .Form.Errors.Get "email"}}
+                            <label class="text-danger">: {{.}}</label>
+                            {{end}}
+                            {{$match := "email"}}
+                            <input required class="form-control {{with .Form.Errors.Get $match}} is-invalid
+                                {{end}}" type="email" autocomplete="off" id="email" name="email"
+                                value="{{$res.Email}}">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="phone">Phone</label>
+                            {{with .Form.Errors.Get "phone"}}
+                            <label class="text-danger">: {{.}}</label>
+                            {{end}}
+                            {{$match := "phone"}}
+                            <input required class="form-control {{with .Form.Errors.Get $match}} is-invalid
+                                {{end}}" type="text" id="phone" name="phone" value="{{$res.Phone}}">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <hr>
+            <button type="submit" class="btn btn-primary mt-3">Search Availability</button>
 
-        <button type="submit" class="btn btn-primary">Search Availability</button>
-
-    </form>
+        </form>
+    </div>
 </body>
 
 </html>

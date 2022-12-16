@@ -16,6 +16,10 @@ var functions = template.FuncMap{}
 
 // Add default data to templatedata
 func AddDefaultData(td *models.TemplateData, r *http.Request) *models.TemplateData {
+	td.Flash = config.Config.Session.PopString(r.Context(), "flash")
+	td.Error = config.Config.Session.PopString(r.Context(), "error")
+	td.Warning = config.Config.Session.PopString(r.Context(), "warning")
+
 	td.CSRFToken = nosurf.Token(r)
 
 	return td
